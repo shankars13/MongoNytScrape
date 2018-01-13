@@ -25,7 +25,7 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine","handlebars");
 
-mongoose.connect("mongodb://lodalhost/mongonewsscrape");
+mongoose.connect("mongodb://localhost/mongonewsscrape");
 
 var db = mongoose.connection;
 
@@ -36,8 +36,8 @@ db.on("error",function(error) {
 db.once("open",function() {
 	console.log("Mongoose connection successful ");
 })
-var routes = ("./controllers/article-controller.js");
-app.use("/",routes);
+require ("./controllers/article-controller.js")(app);
+// app.use("/",routes);
 
 app.listen(port,function() {
 	console.log("Listening on " + port);
