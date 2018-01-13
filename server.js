@@ -25,7 +25,13 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine","handlebars");
 
-mongoose.connect("mongodb://localhost/mongonewsscrape");
+if (process.env.MONGODB_URI) {
+	console.log('Connecting to MLAB');
+	mongoose.connect("mongodb://heroku_swbfvj3n:7gkr5p0r5nh9eaf9ascd0fs540@ds147711.mlab.com:47711/heroku_swbfvj3n");
+}
+else {
+	mongoose.connect("mongodb://localhost/mongonewsscrape");
+}
 
 var db = mongoose.connection;
 
@@ -35,7 +41,9 @@ db.on("error",function(error) {
 
 db.once("open",function() {
 	console.log("Mongoose connection successful ");
-})
+});
+
+// Require article-controller
 require ("./controllers/article-controller.js")(app);
 // app.use("/",routes);
 
