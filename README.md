@@ -4,6 +4,8 @@
 
 Scrapes news from NY Times and displays it.
 
+https://mongonytscrape.herokuapp.com/
+
 
 Features :
 
