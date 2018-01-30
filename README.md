@@ -12,7 +12,7 @@ Features :
 Uses MVC Design.
 Scrape NY Times for articles anytime to get new and latest news.
 Can read Headline, Summary of latest news on NY Times after the Scrape.
-Save or Unsave any article for later reading. It can be vivewed in the Saved section
+Save or Unsave any article for later reading. It can be viewed in the Saved section
 Add notes or View notes to each saved article
 Read complete story from the main website when clicked on the headline link
 
